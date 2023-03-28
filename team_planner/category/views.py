@@ -15,6 +15,30 @@ def locdetupd(request, id):
     return render(request, "category/locations_detail_upd.html", {"location": location})
 
 
+def update_location(request, id):
+    #dictionary for initial data with fields names as keys
+
+    context ={}
+
+    #fetch the object related to passed id
+#    obj = get_object_or_404(Location, pk = id)
+    location = get_object_or_404(Location, pk=id)
+
+    # pass the object as instance in form
+#    form = LocationForm(request.POST or None, instance = obj)
+    form = LocationForm(request.POST or None, instance = location)
+
+    #save the data from the form and redirect to "empty location update page"
+    # NB used the same code as for new location (as per Pluralsight tutorial)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Location amendment(s) added successfully")
+        return redirect("updloc")
+    else:
+        form= LocationForm()
+    return render(request, "category/locations_update.html", {"form": form})
+
+
 def locdetupdtest(request, id):
     location = get_object_or_404(Location, pk=id)
     if request.method == "POST":
@@ -26,11 +50,6 @@ def locdetupdtest(request, id):
     else:
         form= LocationForm(instance=location)
     return render(request, "category/locations_detail_upd.html", {"form": form})
-
-
-
-
-
 
 
 
@@ -162,25 +181,6 @@ def new_team(request):
 #    return render(request, "category/locations_update.html",
 #                  {"loclist": Location.objects.all()})
 #    # update page for specified location
-
-
-def update_location(request, id):
-    #dictionary for initial data with fields names as keys
-    context ={}
-    #fetch the object related to passed id
-    obj = get_object_or_404(Location, pk = id)
-    # pass the object as instance in form
-    form = LocationForm(request.POST or None, instance = obj)
-    #save the data from the form and redirect to "empty location update page"
-    # NB used the same code as for new location (as per Pluralsight tutorial)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Location amendment(s) added successfully")
-        return redirect("updloc")
-    else:
-        form= LocationForm()
-    return render(request, "category/locations_update.html", {"form": form})
-
 
 
 

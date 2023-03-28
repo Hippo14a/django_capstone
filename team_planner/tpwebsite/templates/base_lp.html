@@ -13,15 +13,15 @@
     <div class="container">
         <p>"Here are our core team members"</p>
         <p>"Another line of text"</p>
-        <ul>
-            {% for team in teamlist %}
-                <li>
-                    <a href="{% url 'teamdetail' team.id %}">
-                        {{ team.team_name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+            <ul>
+                {% for team in team %}
+                    <li>
+                        <a href="{% url 'teamdetail' team.id %}">
+                            {{ team.team_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
     </div>
 </body>
 </html>
