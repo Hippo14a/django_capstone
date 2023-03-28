@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Managers{% endblock %}
+
+{% block content %}
+
+    <h1>Python-Django Team Planner Managers Page</h1>
+    <img src="{% static 'tpwebsite/Manager.png' %}" width="200px" height="200px">
+    <h2>Select which action you would like to take for <b>Managers</b></h2>
+    <h2>C (Create); R (Read); U ( Update); D (Delete)</h2>
+
+
+  <a href="{% url 'newmgr' %}"><button><img src="{% static 'tpwebsite/Create.png' %}" width="200px" height="200px">C</button></a>
+
+  <a href="{% url 'managers' %}"><button><img src="{% static 'tpwebsite/Read.png' %}" width="200px" height="200px">R</button></a>
+
+  <a href="{% url 'updmgr' %}"><button><img src="{% static 'tpwebsite/Update.png' %}" width="200px" height="200px">U</button></a>
+
+  <a href="{% url 'delmgr' %}"><button><img src="{% static 'tpwebsite/Delete.png' %}" width="200px" height="200px">D</button></a>
+
+
+  <h2>Go back to</h2>
+
+  <p>
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+
+
+{% endblock %}

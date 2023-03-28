@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}UPDATE{% endblock %}
+
+{% block content %}
+
+    <h1>Python-Django Update Page</h1>
+    <img src="{% static 'tpwebsite/Update.png' %}" width="200px" height="200px">
+    <h2>Select the Category for which you would like to update an existing entry</h2>
+
+  <a href="{% url 'updloc' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="200px" height="200px">Locations</button></a>
+
+  <a href="{% url 'locations' %}"><button><img src="{% static 'tpwebsite/Manager.png' %}" width="200px" height="200px">Managers</button></a>
+
+  <a href="{% url 'locations' %}"><button><img src="{% static 'tpwebsite/Member.png' %}" width="200px" height="200px">Members</button></a>
+
+  <a href="{% url 'locations' %}"><button><img src="{% static 'tpwebsite/Teams.png' %}" width="200px" height="200px">Teams</button></a>
+
+
+  <h2>Go back to</h2>
+
+  <p>
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+
+
+{% endblock %}

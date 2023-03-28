@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}CREATE{% endblock %}
+
+{% block content %}
+
+    <h1>Python-Django Create Page</h1>
+    <img src="{% static 'tpwebsite/Create.png' %}" width="200px" height="200px">
+    <h2>Select the Category for which you would like to create a new entry</h2>
+
+  <a href="{% url 'newloc' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="200px" height="200px">Location</button></a>
+
+  <a href="{% url 'newman' %}"><button><img src="{% static 'tpwebsite/Manager.png' %}" width="200px" height="200px">Manager</button></a>
+
+  <a href="{% url 'newmem' %}"><button><img src="{% static 'tpwebsite/Member.png' %}" width="200px" height="200px">Member</button></a>
+
+  <a href="{% url 'newtea' %}"><button><img src="{% static 'tpwebsite/Teams.png' %}" width="200px" height="200px">Team</button></a>
+
+  <h2>Go back to</h2>
+
+  <p>
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+{% endblock %}

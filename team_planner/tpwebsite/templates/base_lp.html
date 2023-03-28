@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet"
+          href="{% static 'tpwebsite/style.css' %}">
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    <div class="container">
+        <p>"Here are our core team members"</p>
+        <p>"Another line of text"</p>
+        <ul>
+            {% for team in teamlist %}
+                <li>
+                    <a href="{% url 'teamdetail' team.id %}">
+                        {{ team.team_name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+    color: cornflowerblue;
+    background-color: floralwhite;
+}
+.container {
+    border-style:solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    width:95%;
+    height: 100px;
+    justify-content:center;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+}

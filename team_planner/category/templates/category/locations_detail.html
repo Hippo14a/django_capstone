@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Location: {{location.location_name}}{% endblock %}
+
+{% block content %}
+
+<h1>{{location.location_name}}</h1>
+<h2>The details for the location <b>{{location.location_name}}</b> are as follows:</h2>
+
+<p>Address line 1: {{location.address_line_1}}</p>
+<p>Address Line 2: {{location.address_line_2}}</p>
+<p>City          : {{location.city}}</p>
+<p>Post Code     : {{location.post_code}}</p>
+
+
+<h2>Click below to go back to ...</h2>
+
+
+<p>
+  <a href="{% url 'locations' %}"><button><img src="{% static 'tpwebsite/List.png' %}" width="50px" height="50px">List</button></a>
+
+  <a href="{% url 'location_page' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="50px" height="50px">Location</button></a>
+
+  <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+</p>
+
+
+{% endblock %}

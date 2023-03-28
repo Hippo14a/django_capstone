@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}New Member{% endblock %}
+
+{% block content %}
+
+<h1>Add a New Member</h1>
+<form method="post">
+  <table>
+    {{ form }}
+  </table>
+  {% csrf_token %}
+  <p>When you are happy with your input, click below to submit</p>
+  <button type="submit"><img src="{% static 'tpwebsite/Submit.png' %}" width="75px" height="75px"></button>
+</form>
+
+  <p>Click below to go back to ...</p>
+
+  <p>
+    <a href="{% url 'member_page' %}"><button><img src="{% static 'tpwebsite/Member.png' %}" width="50px" height="50px">Member</button></a>
+
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+<h3>Confirmation ...</h3>
+{% for msg in messages %}
+  <strong>Success!</strong> {{ msg }}
+{% endfor %}
+
+
+{% endblock %}
+

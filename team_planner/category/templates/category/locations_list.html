@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}LOCLIST{% endblock %}
+
+{% block content %}
+    <h1>Locations List Page</h1>
+    <h2>Click on a Location name to see more details</h2>
+    <ul>
+      {% for location in loclist %}
+        <li>
+          <a href="{% url 'locationdetail' location.id %}">
+            {{ location.location_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+
+  <p>Click below to go back to ...</p>
+
+  <p>
+    <a href="{% url 'location_page' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="50px" height="50px">Location</button></a>
+
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+{% endblock %}
