@@ -15,4 +15,3 @@ class LocationForm(forms.ModelForm):
             "city",
             "post_code"]
 
-

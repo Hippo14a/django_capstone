@@ -2,20 +2,25 @@
 
 {% load static %}
 
-{% block title %}LOCLIST{% endblock %}
+{% block title %}LOCUPDT{% endblock %}
 
 {% block content %}
-    <h1>Locations List Page</h1>
-    <h2>Click on a Location name to see more details</h2>
+
+    <h1>Locations Update Page</h1>
+    <h2>Click on a location name to Update details</h2>
+
     <ul>
-      {% for location in loclist %}
-        <li>
-          <a href="{% url 'locationdetail' location.id %}">
-            {{ location.location_name }}
-          </a>
-        </li>
-      {% endfor %}
+        {% for location in loclist %}
+             <li>
+                <a href="{% url 'locationdetupd' location.id %}">
+                    {{ location.location_name }}
+                </a>
+            </li>
+        {% endfor %}
     </ul>
+
+
+
 
 
   <p>Click below to go back to ...</p>

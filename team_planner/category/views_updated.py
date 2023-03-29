@@ -38,7 +38,7 @@ def update_location(request):
     return render(request, "category/locations_update_list.html",
                   {"loclist": Location.objects.all()})
 
-# update selected location
+
 def update_existing_location(request, id):
 
     #dictionary for initial data with fields names as keys
@@ -104,9 +104,6 @@ def update_manager(request):
                   {"mgrlist": Manager.objects.all()})
 
 
-# update selected manager
-
-
 # selection list of all managers for delete
 
 
@@ -140,14 +137,6 @@ def memdet(request, id):
 def member_list(request):
     return render(request, "category/members_list.html",
                   {"memlist": Member.objects.all()})
-
-
-# selection list of all members for update
-def update_member(request):
-    return render(request, "category/members_update.html",
-                  {"memlist": Member.objects.all()})
-
-# update selected member
 
 
 
@@ -189,9 +178,6 @@ def team_list(request):
 
 
 # selection list of all teams for update
-
-# update selected team
-
 
 
 # selection list of all teams for delete
