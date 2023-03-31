@@ -2,16 +2,15 @@
 
 {% load static %}
 
-{% block title %}MEMDEL{% endblock %}
+{% block title %}MemUpdtList{% endblock %}
 
 {% block content %}
-    <h1>Members Delete Page</h1>
-    <h2>Click on a Member name to delete</h2>
-    <h3>NOTE: This will delete the selected Member record in its entirety</h3>
+    <h1>Members Update Page (members_update_list)</h1>
+    <h2>Click on a Member name to Update details</h2>
     <ul>
       {% for member in memlist %}
         <li>
-          <a href="{% url 'memberdetail' member.id %}">
+          <a href="{% url 'memberdetupd' member.id %}">
             {{ member.last_name }}
           </a>
         </li>

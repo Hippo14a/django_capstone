@@ -2,21 +2,20 @@
 
 {% load static %}
 
-{% block title %}MGRDEL{% endblock %}
+{% block title %}ManUpdtSel{% endblock %}
 
 {% block content %}
-    <h1>Managers Delete Page</h1>
-    <h2>Click on a Manager name to delete</h2>
-    <h3>NOTE: This will delete the selected Manager record in its entirety</h3>
-    <ul>
-      {% for manager in mgrlist %}
-        <li>
-          <a href="{% url 'managerdetail' manager.id %}">
-            {{ manager.last_name }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+
+<h1>Managers Update: Selected Record (managers_update_selection)</h1>
+
+<form method="post">
+    {% csrf_token %}
+  <table>
+    {{ form.as_p }}
+  </table>
+  <p>When you are happy with your updates, click below to submit</p>
+  <button type="submit"><img src="{% static 'tpwebsite/Submit.png' %}" width="75px" height="75px"></button>
+</form>
 
 
   <p>Click below to go back to ...</p>
@@ -26,6 +25,5 @@
 
     <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
   </p>
-
 
 {% endblock %}

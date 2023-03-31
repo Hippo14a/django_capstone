@@ -16,6 +16,12 @@ or if this has any impact on my urls issue
                   {"members": Member.objects.all()},
                   {"teams": Team.objects.all})
 '''
+
+def teams_list_page(request):
+    return render(request, "tpwebsite/teams_list_page.html",
+                  {"teams": Team.objects.all()})
+
+
 def create_page(request):
     return render(request, "tpwebsite/create_page.html",
                   {"teams": Team.objects.all()})

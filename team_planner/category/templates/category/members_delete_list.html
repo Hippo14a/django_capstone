@@ -2,17 +2,17 @@
 
 {% load static %}
 
-{% block title %}LocDelList{% endblock %}
+{% block title %}MemDelList{% endblock %}
 
 {% block content %}
-    <h1>Locations Delete Page (locations_delete_list)</h1>
-    <h2>Click on a Location name to select for deletion</h2>
+    <h1>Members Delete Page (members_delete_list)</h1>
+    <h2>Click on a Member name to select for deletion</h2>
     <h3>NOTE: This will open a view of the entire record for review prior to deletion</h3>
     <ul>
-      {% for location in loclist %}
+      {% for member in memlist %}
         <li>
-          <a href="{% url 'locationdetdel' location.id %}">
-            {{ location.location_name }}
+          <a href="{% url 'memberdetdel' member.id %}">
+            {{ member.last_name }}
           </a>
         </li>
       {% endfor %}
@@ -22,9 +22,10 @@
   <p>Click below to go back to ...</p>
 
   <p>
-    <a href="{% url 'location_page' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="50px" height="50px">Location</button></a>
+    <a href="{% url 'member_page' %}"><button><img src="{% static 'tpwebsite/Member.png' %}" width="50px" height="50px">Member</button></a>
 
     <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
   </p>
+
 
 {% endblock %}

@@ -1,4 +1,4 @@
-{% load static %}
+<!--{% load static %}-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +10,10 @@
 <body>
     {% block content %}
     {% endblock %}
-    <div class="container">
-        <p>"Here are our core team members"</p>
-        <p>"Another line of text"</p>
+    <div class="container1">
+        <h2>Administration team</h2>
+        <p>Bertie Brennan</p>
+        <p>Darrin Juarez</p>
             <ul>
                 {% for team in team %}
                     <li>
@@ -23,5 +24,46 @@
                 {% endfor %}
             </ul>
     </div>
+    <div class="container2">
+        <h2>Power Plant team</h2>
+        <p>Quinn Blackburn</p>
+        <p>Beverley York</p>
+            <ul>
+                {% for team in team %}
+                    <li>
+                        <a href="{% url 'teamdetail' team.id %}">
+                            {{ team.team_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+    <div class="container3">
+        <h2>Store team</h2>
+        <p>Catalina Knight</p>
+        <p>Faye Johnson</p>
+        <p>Sylvester Villa</p>
+            <ul>
+                {% for team in team %}
+                    <li>
+                        <a href="{% url 'teamdetail' team.id %}">
+                            {{ team.team_name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+
+
+
+
+  <h2>Go back to</h2>
+
+  <p>
+    <a href="{% url 'landing_page' %}"<button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+
 </body>
 </html>

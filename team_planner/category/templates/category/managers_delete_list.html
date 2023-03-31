@@ -2,15 +2,16 @@
 
 {% load static %}
 
-{% block title %}MGRUPDT{% endblock %}
+{% block title %}MgrDelList{% endblock %}
 
 {% block content %}
-    <h1>Managers Update Page</h1>
-    <h2>Click on a Manager name to Update details</h2>
+    <h1>Managers Delete Page (managers_delete_list)</h1>
+    <h2>Click on a Manager name to select for deletion</h2>
+    <h3>NOTE: This will open a view of the entire record for review prior to deletion</h3>
     <ul>
       {% for manager in mgrlist %}
         <li>
-          <a href="{% url 'managerdetail' manager.id %}">
+          <a href="{% url 'managerdetdel' manager.id %}">
             {{ manager.last_name }}
           </a>
         </li>

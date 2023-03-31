@@ -100,7 +100,7 @@ def manager_list(request):
 
 # selection list of all managers for update
 def update_manager(request):
-    return render(request, "category/managers_update.html",
+    return render(request, "category/managers_update_list.html",
                   {"mgrlist": Manager.objects.all()})
 
 
@@ -205,7 +205,7 @@ def team_list(request):
     # selection list of all teams
     # update page for specified team
 def update_team(request):
-    return render(request, "category/teams_update.html",
+    return render(request, "category/teams_update_list.html",
                   {"teamlist": Team.objects.all()})
 
 
@@ -214,17 +214,17 @@ def update_team(request):
 
 # delete Manager
 def delete_manager(request):
-    return render(request, "category/managers_delete.html",
+    return render(request, "category/managers_delete_list.html",
                   {"mgrlist": Manager.objects.all()})
 
 # delete Member
 def delete_member(request):
-    return render(request, "category/members_delete.html",
+    return render(request, "category/members_delete_list.html",
                   {"memlist": Member.objects.all()})
 
 # delete Team
 def delete_team(request):
-    return render(request, "category/teams_delete.html",
+    return render(request, "category/teams_delete_list.html",
                   {"teamlist": Team.objects.all()})
 
 

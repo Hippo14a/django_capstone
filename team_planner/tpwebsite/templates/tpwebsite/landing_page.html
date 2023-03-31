@@ -1,4 +1,4 @@
-{% extends "base_lp.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 
@@ -9,6 +9,9 @@
     <h1>Welcome to the Python-Django Team Planner</h1>
     <img src="{% static 'tpwebsite/Team Planner.png' %}" width="200px">
 
+    <a href="{% url 'teams_list_page' %}"><button><img src="{% static 'tpwebsite/TeamsList.png' %}" width="200px" height="200px">Team Lists</button></a>
+
+
     <h1>Choose a page from the business categories below:</h1>
     <a href="{% url 'location_page' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="200px" height="200px">Locations</button></a>
 
@@ -18,23 +21,6 @@
 
     <a href="{% url 'team_page' %}"><button><img src="{% static 'tpwebsite/Teams.png' %}" width="200px" height="200px">Teams</button></a>
 
-
-<!--
-    <h1>Choose from the available CRUD options below</h1>
-    <a href="{% url 'create_page' %}"><button><img src="{% static 'tpwebsite/Create.png' %}" width="200px" height="200px">Create</button></a>
-
-    <a href="{% url 'read_page' %}"><button><img src="{% static 'tpwebsite/Read.png' %}" width="200px" height="200px">Read</button></a>
-
-    <a href="{% url 'update_page' %}"><button><img src="{% static 'tpwebsite/Update.png' %}" width="200px" height="200px">Update</button></a>
-
-    <a href="{% url 'delete_page' %}"><button><img src="{% static 'tpwebsite/Delete.png' %}" width="200px" height="200px">Delete</button></a>
--->
-
-<!--
-<div class="container">
-    <p>Hello!!!!</p>
-</div>
--->
 
 {% endblock %}
 

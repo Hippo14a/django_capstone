@@ -2,11 +2,11 @@
 
 {% load static %}
 
-{% block title %}LOCUPDT{% endblock %}
+{% block title %}LocUpdtSel{% endblock %}
 
 {% block content %}
 
-<h1>Locations Update: Selected Record</h1>
+<h1>Locations Update: Selected Record (locations_update_selection)</h1>
 
 <form method="post">
     {% csrf_token %}
@@ -21,6 +21,8 @@
   <p>Click below to go back to ...</p>
 
   <p>
+    <a href="{% url 'locations' %}"><button><img src="{% static 'tpwebsite/List.png' %}" width="50px" height="50px">List</button></a>
+
     <a href="{% url 'location_page' %}"><button><img src="{% static 'tpwebsite/Location.png' %}" width="50px" height="50px">Location</button></a>
 
     <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>

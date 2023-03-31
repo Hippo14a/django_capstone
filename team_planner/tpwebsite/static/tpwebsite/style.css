@@ -3,15 +3,38 @@ body {
     color: cornflowerblue;
     background-color: floralwhite;
 }
-.container {
+.container1 {
     border-style:solid;
     border-width: 2px;
     border-color: black;
     border-radius: 15px;
     width:95%;
-    height: 100px;
+    height: 200px;
     justify-content:center;
     margin: auto;
     margin-bottom: 10px;
     background-color: whitesmoke;
+.container2 {
+    border-style:solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    width:95%;
+    height: 200px;
+    justify-content:center;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+.container3 {
+    border-style:solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    width:95%;
+    height: 200px;
+    justify-content:center;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+
 }

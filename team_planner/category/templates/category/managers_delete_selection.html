@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}MgrDelSel{% endblock %}
+
+{% block content %}
+
+
+<h1>{{manager.last_name}}</h1>
+<h2>This manager has been selected for DELETION</h2>
+<h2>The details for team manager <b>{{manager.first_name}} {{manager.last_name}}</b> are as follows:</h2>
+
+<p>Employee Number: {{manager.employee_number}}</p>
+<p>Start Date: {{manager.start_date}}<p>
+<p>Internal Phone Number: {{manager.internal_phone}}</p>
+<p>Internal Email Address: {{manager.internal_email}}</p>
+<p>Job Description: {{manager.job.description}}</p>
+<p>Team Name: {{manager.team}}</p>
+<p>Role Description: {{manager.role}}</p>
+<p>Work Location: {{manager.location}}</p>
+<p>System Access Category: {{manager.gui_type}}</p>
+
+
+<h2>Click below to DELETE this record</h2>
+
+  <a href="{% url 'delmngr' manager.id %}"><button><img src="{% static 'tpwebsite/Delete.png' %}" width="50px" height="50px">DELETE</button></a>
+
+
+
+<h2>Click below to go back to ...</h2>
+
+
+<p>
+  <a href="{% url 'managers' %}"><button><img src="{% static 'tpwebsite/List.png' %}" width="50px" height="50px">List</button></a>
+
+  <a href="{% url 'manager_page' %}"><button><img src="{% static 'tpwebsite/Manager.png' %}" width="50px" height="50px">Manager</button></a>
+
+  <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+</p>
+
+
+{% endblock %}
