@@ -1,5 +1,6 @@
 from django.db import models
 
+# Create team model
 class Team(models.Model):
     team_name = models.CharField(max_length=20)
     team_email = models.EmailField()
@@ -9,6 +10,7 @@ class Team(models.Model):
         return f"{self.team_name}"
 
 
+# Create location model
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
     address_line_1 = models.CharField(max_length=30)
@@ -19,6 +21,7 @@ class Location(models.Model):
     def __str__(self):
         return f"{self.location_name}"
 
+# Create role model
 class Role(models.Model):
     role_title = models.CharField(max_length=15)
     read_permissions = models.CharField(max_length=15)
@@ -28,6 +31,7 @@ class Role(models.Model):
         return f"{self.role_title}"
 
 
+# Create member model
 class Member(models.Model):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=15)
@@ -44,6 +48,8 @@ class Member(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+
+# Create manager model
 class Manager(models.Model):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=15)
@@ -61,14 +67,10 @@ class Manager(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
-
+# Create fkey model
 class Fkey(models.Model):
     fk_title = models.CharField(max_length=100)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.fk_title}"
-
-
-#    room = models.ForeignKey(Room, on_delete=models.CASCADE)
-

@@ -6,7 +6,7 @@ from .views import update_location
 # urls for the App "category" within the project "team_planner"
 
 urlpatterns = [
-# location paths
+# Url paths for locations
     path('new_location', views.new_location, name="newloc"),
     path('location', views.location_list, name="locations"),
     path('update_location', views.update_location, name="updloc"),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('locupd<int:id>', views.update_existing_location, name="locationdetupd"),
     path('locdel<int:id>', views.delete_existing_location, name="locationdetdel"),
 
-# manager paths
+# Url paths for managers
     path('new_manager', views.new_manager, name="newmgr"),
     path('manager', views.manager_list, name="managers"),
     path('update_manager', views.update_manager, name="updmgr"),
@@ -26,7 +26,7 @@ urlpatterns = [
     path('manlist<int:id>', views.mgrdet, name="managerdetail"),
     path('manupd<int:id>', views.update_existing_manager, name="managerdetupd"),
 
-# member paths
+# Url paths for members
     path('new_member', views.new_member, name="newmem"),
     path('member', views.member_list, name="members"),
     path('update_member', views.update_member, name="updmem"),
@@ -36,7 +36,7 @@ urlpatterns = [
     path('memlist<int:id>', views.memdet, name="memberdetail"),
     path('memupd<int:id>', views.update_existing_member, name="memberdetupd"),
 
-# team paths
+# Url paths for teams
     path('new_team', views.new_team, name="newtea"),
     path('team', views.team_list, name="teams"),
     path('update_team', views.update_team, name="updtea"),
@@ -47,13 +47,3 @@ urlpatterns = [
     path('teaupd<int:id>', views.update_existing_team, name="teamdetupd"),
 
 ]
-
-# car parked urls
-#    path('update', update_location),
-#    path('mandel<int:id>', views.delete_existing_manager, name="managerdetdel"),
-#    path('memdel<int:id>', views.delete_existing_member, name="memberdetdel"),
-#    path('teadel<int:id>', views.delete_existing_team, name="teamdetdel"),
-    #original
-#    path('manager<int:id>', views.mgrdet, name="managerdetail"),
-#    path('member<int:id>', views.memdet, name="memberdetail"),
-#    path('team<int:id>', views.teamdet, name="teamdetail"),

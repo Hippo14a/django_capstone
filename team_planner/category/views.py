@@ -5,7 +5,7 @@ from .forms import LocationForm, ManagerForm, MemberForm, TeamForm
 from django.contrib import messages
 
 
-# LOCATION section
+# Location section
 # Add location
 NewLocationForm = modelform_factory(Location, exclude=[])
 def new_location(request):
@@ -19,63 +19,59 @@ def new_location(request):
         form = NewLocationForm()
     return render(request, "category/locations_new.html", {"form": form})
 
-# list an individual location's details
+# List an individual location's details
 def locdet(request, id):
     location = get_object_or_404(Location, pk=id)
     return render(request, "category/locations_detail.html", {"location": location})
 
-# list all locations
+# List all locations
 def location_list(request):
     return render(request, "category/locations_list.html",
                   {"loclist": Location.objects.all()})
 
 
-# selection list of all locations for update
+# Selection list of all locations for update
 def update_location(request):
-# hmtl file name refactored / renamed 29th am
+# Hmtl file name refactored / renamed 29th am
     return render(request, "category/locations_update_list.html",
                   {"loclist": Location.objects.all()})
 
-# update selected location
+# Update selected location
+# Batch's test
 def update_existing_location(request, id):
-    #dictionary for initial data with fields names as keys
-#    context ={}
-    #fetch the object related to passed id
-    location = get_object_or_404(Location, pk=id)
-    # pass the object as instance in form
-    form = LocationForm(request.POST or None, instance = location)
-    #save the data from the form and redirect to "empty location update page"
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Location amendment(s) added successfully")
-        return redirect("updloc")
+    location = Location.objects.get(id=id)
+    if request.method == "POST":
+        form = LocationForm(request.POST, instance=location)
+        if form.is_valid():
+            form.save()
+            return redirect("locations")
     else:
-        form= LocationForm()
+        form = LocationForm(instance=location)
     return render(request, "category/locations_update_selection.html", {"form": form})
 
 
-# selection list of all locations for delete
+# Selection list of all locations for delete
 
 def delete_location(request):
     return render(request, "category/locations_delete_list.html",
                   {"loclist": Location.objects.all()})
 
 
-# list the detail of the location selected for deletion for final review
+# List the detail of the location selected for deletion for final review
 def delete_existing_location(request, id):
     location = get_object_or_404(Location, pk=id)
     return render(request, "category/locations_delete_selection.html", {"location": location})
 
-# delete the location
+# Delete the location
 def delete_location_specific(request, id):
     location = get_object_or_404(Location, pk=id)
     location.delete()
-    return redirect("landing_page")
+    return redirect("location_page")
     return render(request, "category/locations_delete_list.html",
                   {"loclist": Location.objects.all()})
 
 
-# MANAGER section
+# Manager section
 
 # Add Manager
 NewManagerForm = modelform_factory(Manager, exclude=[])
@@ -91,54 +87,48 @@ def new_manager(request):
     return render(request, "category/managers_new.html", {"form": form})
 
 
-# list an individual managers details
+# List an individual managers details
 def mgrdet(request, id):
     manager = get_object_or_404(Manager, pk=id)
     return render(request, "category/managers_detail.html", {"manager": manager})
 
-# list all managers
+# List all managers
 def manager_list(request):
     return render(request, "category/managers_list.html",
                   {"mgrlist": Manager.objects.all()})
 
-# selection list of all managers for update
+# Selection list of all managers for update
 def update_manager(request):
     return render(request, "category/managers_update_list.html",
                   {"mgrlist": Manager.objects.all()})
 
 
-# update selected manager
 def update_existing_manager(request, id):
-    #dictionary for initial data with fields names as keys
-    context ={}
-    #fetch the object related to passed id
-    manager = get_object_or_404(Manager, pk=id)
-    # pass the object as instance in form
-    form = ManagerForm(request.POST or None, instance = manager)
-    #save the data from the form and redirect to "empty location update page"
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Manager amendment(s) added successfully")
-        return redirect("updmgr")
+    manager = Manager.objects.get(id=id)
+    if request.method == "POST":
+        form = ManagerForm(request.POST, instance=manager)
+        if form.is_valid():
+            form.save()
+            return redirect("managers")
     else:
-        form= LocationForm()
+        form = ManagerForm(instance=manager)
     return render(request, "category/managers_update_selection.html", {"form": form})
 
 
-# selection list of all managers for delete
+# Selection list of all managers for delete
 
-# delete Manager
+# Delete Manager
 def delete_manager(request):
     return render(request, "category/managers_delete_list.html",
                   {"mgrlist": Manager.objects.all()})
 
 
-# list the detail of the location selected for deletion for final review
+# List the detail of the location selected for deletion for final review
 def delete_existing_manager(request, id):
     manager = get_object_or_404(Manager, pk=id)
     return render(request, "category/managers_delete_selection.html", {"manager": manager})
 
-# delete the manager
+# Delete the manager
 def delete_manager_specific(request, id):
     manager = get_object_or_404(Manager, pk=id)
     manager.delete()
@@ -147,16 +137,9 @@ def delete_manager_specific(request, id):
                   {"mgrlist": Manager.objects.all()})
 
 
+# List the detail of the manager selected for deletion for final review
 
-
-
-
-# list the detail of the manager selected for deletion for final review
-
-
-
-
-# MEMBER section
+# Member section
 
 # Add Member
 NewMemberForm = modelform_factory(Member, exclude=[])
@@ -171,56 +154,51 @@ def new_member(request):
         form = NewMemberForm()
     return render(request, "category/members_new.html", {"form": form})
 
-# list an individual members details
+# List an individual members details
 def memdet(request, id):
     member = get_object_or_404(Member, pk=id)
     return render(request, "category/members_detail.html", {"member": member})
 
 
-# list all members
+# List all members
 def member_list(request):
     return render(request, "category/members_list.html",
                   {"memlist": Member.objects.all()})
 
 
-# selection list of all members for update
+# Selection list of all members for update
 def update_member(request):
     return render(request, "category/members_update_list.html",
                   {"memlist": Member.objects.all()})
 
-# update selected member
+# Update selected member
+
 def update_existing_member(request, id):
-    #dictionary for initial data with fields names as keys
-    context ={}
-    #fetch the object related to passed id
-    member = get_object_or_404(Member, pk=id)
-    # pass the object as instance in form
-    form = MemberForm(request.POST or None, instance = member)
-    #save the data from the form and redirect to "empty location update page"
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Member amendment(s) added successfully")
-        return redirect("updmem")
+    member = Member.objects.get(id=id)
+    if request.method == "POST":
+        form = MemberForm(request.POST, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect("members")
     else:
-        form= LocationForm()
+        form = MemberForm(instance=member)
     return render(request, "category/members_update_selection.html", {"form": form})
 
 
+# Selection list of all members for delete
 
-# selection list of all members for delete
-
-# delete Member
+# Delete Member
 def delete_member(request):
     return render(request, "category/members_delete_list.html",
                   {"memlist": Member.objects.all()})
 
 
-# list the detail of the member selected for deletion for final review
+# List the detail of the member selected for deletion for final review
 def delete_existing_member(request, id):
     member = get_object_or_404(Member, pk=id)
     return render(request, "category/members_delete_selection.html", {"member": member})
 
-# delete the member
+# Delete the member
 def delete_member_specific(request, id):
     member = get_object_or_404(Member, pk=id)
     member.delete()
@@ -229,7 +207,7 @@ def delete_member_specific(request, id):
                   {"memlist": Member.objects.all()})
 
 
-# TEAM section
+# Team section
 
 # Add Team
 NewTeamForm = modelform_factory(Team, exclude=[])
@@ -244,14 +222,14 @@ def new_team(request):
         form = NewTeamForm()
     return render(request, "category/teams_new.html", {"form": form})
 
-# list an individual teams details
+# List an individual teams details
 
 def teamdet(request, id):
     team = get_object_or_404(Team, pk=id)
     return render(request, "category/teams_detail.html", {"team": team})
 
 
-# list all teams
+# List all teams
 
 def team_list(request):
     return render(request, "category/teams_list.html",
@@ -259,40 +237,35 @@ def team_list(request):
 
 
 
-# selection list of all teams for update
+# Selection list of all teams for update
 
-# update selected team
+# Update selected team
 def update_existing_team(request, id):
-    #dictionary for initial data with fields names as keys
-    context ={}
-    #fetch the object related to passed id
-    team = get_object_or_404(Team, pk=id)
-    # pass the object as instance in form
-    form = TeamForm(request.POST or None, instance = team)
-    #save the data from the form and redirect to "empty location update page"
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Team amendment(s) added successfully")
-        return redirect("updtea")
+    team = Team.objects.get(id=id)
+    if request.method == "POST":
+        form = TeamForm(request.POST, instance=team)
+        if form.is_valid():
+            form.save()
+            return redirect("teams")
     else:
-        form= LocationForm()
+        form = TeamForm(instance=team)
     return render(request, "category/teams_update_selection.html", {"form": form})
 
 
-# selection list of all teams for delete
+# Selection list of all teams for delete
 
-# delete Team
+# Delete Team
 def delete_team(request):
     return render(request, "category/teams_delete_list.html",
                   {"teamlist": Team.objects.all()})
 
 
-# list the detail of the team selected for deletion for final review
+# List the detail of the team selected for deletion for final review
 def delete_existing_team(request, id):
     team = get_object_or_404(Team, pk=id)
     return render(request, "category/teams_delete_selection.html", {"team": team})
 
-# delete the team
+# Delete the team
 def delete_team_specific(request, id):
     team = get_object_or_404(Team, pk=id)
     team.delete()
@@ -301,73 +274,12 @@ def delete_team_specific(request, id):
                   {"tealist": Team.objects.all()})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# update Team
-    # selection list of all teams
-    # update page for specified team
+# Update Team
+    # Selection list of all teams
+    # Update page for specified team
 def update_team(request):
     return render(request, "category/teams_update_list.html",
                   {"teamlist": Team.objects.all()})
-
-
-
-
-
-
-
-# CAR PARK OF STUFF
-
-'''
-def locdetupd(request, id):
-    location = get_object_or_404(Location, pk=id)
-    return render(request, "category/locations_detail_upd.html", {"location": location})
-'''
-
-# 29th am'''
-# 29th am def update_location(request, id=1):
-# next line added 29th am
-
-'''
-def locdetupdtest(request, id):
-    location = get_object_or_404(Location, pk=id)
-    if request.method == "POST":
-        form= LocationForm(request.POST, instance=location)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Location amendment(s) added successfully")
-            return redirect("locdetupd")
-    else:
-        form= LocationForm(instance=location)
-    return render(request, "category/locations_detail_upd.html", {"form": form})
-'''
-
-'''
-def update_location_list(request):
-    return render(request, "category/locations_list_upd.html",
-                  {"loclist": Location.objects.all()})
-'''
-
-
-
-
-
-
 
 
 

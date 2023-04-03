@@ -20,8 +20,7 @@ from tpwebsite.views import landing_page, create_page, read_page, update_page, d
 from tpwebsite.views import location_page, manager_page, member_page, team_page
 from tpwebsite.views import date_page, about_page, teams_list_page
 
-# urls for the project "team_planner" (including the generic paths to include all urls in project Apps)
-
+# Urls for the project "team_planner" (including the generic paths to include all urls in project Apps)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', landing_page, name='landing_page'),
@@ -35,8 +34,6 @@ urlpatterns = [
     path('mngr', manager_page, name='manager_page'),
     path('mebr', member_page, name='member_page'),
     path('team', team_page, name='team_page'),
-
-
     path('date', date_page),
     path('about', about_page),
     path('category/', include('category.urls')),
