@@ -81,7 +81,7 @@ def delete_location_specific(request, id):
     location.delete()
     return redirect("location_page")
 #    return render(request, "category/locations_delete_list.html",
-#                 {"loclist": Location.objects.all()})
+#                  {"loclist": Location.objects.all()})
 
 
 # Manager section
