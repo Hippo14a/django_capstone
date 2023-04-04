@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}MEMLISTTL{% endblock %}
+
+{% block content %}
+    <h1>Member + Team List Page</h1>
+    <h2>Click on a Member name to see more details</h2>
+    <h4>&emsp;&emsp;&emsp;Member Name&emsp;&emsp;&emsp;Team Name</h4>
+    <ul>
+      {% for member in memlist %} <br>
+        <li>
+          <a href="{% url 'memberdettl' member.id %}">
+            {{ member.first_name }} {{ member.last_name }} &emsp; {{ member.team}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+
+  <p>Click below to go back to ...</p>
+
+  <p>
+    <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
+  </p>
+
+
+{% endblock %}

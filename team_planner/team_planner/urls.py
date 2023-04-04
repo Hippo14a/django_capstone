@@ -18,9 +18,9 @@ from django.urls import path, include
 
 from tpwebsite.views import landing_page, create_page, read_page, update_page, delete_page
 from tpwebsite.views import location_page, manager_page, member_page, team_page
-from tpwebsite.views import date_page, about_page, teams_list_page
+from tpwebsite.views import date_page, about_page, member_list_tl
 
-# Urls for the project "team_planner" (including the generic paths to include all urls in project Apps)
+# Urls for the project "team_planner" (including generic paths for all urls in project Apps)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', landing_page, name='landing_page'),
@@ -29,7 +29,7 @@ urlpatterns = [
     path('read', read_page, name='read_page'),
     path('update', update_page, name='update_page'),
     path('delete', delete_page, name='delete_page'),
-    path('tlpage', teams_list_page, name='teams_list_page'),
+    path('tlpage', member_list_tl, name='teams_list_page_mem'),
     path('locn', location_page, name='location_page'),
     path('mngr', manager_page, name='manager_page'),
     path('mebr', member_page, name='member_page'),

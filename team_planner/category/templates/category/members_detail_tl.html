@@ -2,17 +2,15 @@
 
 {% load static %}
 
-{% block title %}MemDelSel{% endblock %}
+{% block title %}Member: {{member.last_name}}{% endblock %}
 
 {% block content %}
 
-
 <h1>{{member.last_name}}</h1>
-<h2>This member has been selected for DELETION</h2>
 <h2>The details for team member <b>{{member.first_name}} {{member.last_name}}</b> are as follows:</h2>
 
 <p>Employee Number: {{member.employee_number}}</p>
-<p>Start Date: {{member.start_date}}<p>
+<p>Start Date: {{member.start_date}}</p>
 <p>Internal Phone Number: {{member.internal_phone}}</p>
 <p>Internal Email Address: {{member.internal_email}}</p>
 <p>Job Description: {{member.job.description}}</p>
@@ -22,18 +20,10 @@
 <p>System Access Category: {{member.gui_type}}</p>
 
 
-<h2>Click below to DELETE this record</h2>
-
-  <a href="{% url 'delmemb' member.id %}"><button><img src="{% static 'tpwebsite/Delete.png' %}" width="50px" height="50px">DELETE</button></a>
-
-
-
 <h2>Click below to go back to ...</h2>
 
 
 <p>
-  <a href="{% url 'member_page' %}"><button><img src="{% static 'tpwebsite/Member.png' %}" width="50px" height="50px">Member</button></a>
-
   <a href="{% url 'landing_page' %}"><button><img src="{% static 'tpwebsite/Home.png' %}" width="50px" height="50px">Home</button></a>
 </p>
 

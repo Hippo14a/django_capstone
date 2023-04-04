@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create team model
 class Team(models.Model):
     team_name = models.CharField(max_length=20)
@@ -20,6 +21,7 @@ class Location(models.Model):
 
     def __str__(self):
         return f"{self.location_name}"
+
 
 # Create role model
 class Role(models.Model):
@@ -61,11 +63,11 @@ class Manager(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    gui_type =  models.CharField(max_length=7, default="Manager")
-
+    gui_type = models.CharField(max_length=7, default="Manager")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
 
 # Create fkey model
 class Fkey(models.Model):
