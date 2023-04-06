@@ -6,6 +6,16 @@ from datetime import datetime
 from category.models import Location, Member, Manager, Team
 
 
+
+# Admin page
+def admin_page(request):
+    return HttpResponse("Admin Page login to go here")
+
+#    return render(request, "tpwebsite/landing_page.html",
+#                  {"teams": Team()})
+
+
+
 # Landing page
 def landing_page(request):
     return render(request, "tpwebsite/landing_page.html",

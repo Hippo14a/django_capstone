@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import category.views
 from tpwebsite.views import landing_page, create_page, read_page, update_page, delete_page
 from tpwebsite.views import location_page, manager_page, member_page, team_page
-from tpwebsite.views import date_page, about_page, member_list_tl
+from tpwebsite.views import date_page, about_page, member_list_tl, admin_page
+
 
 # Urls for the project "team_planner" (including generic paths for all urls in project Apps)
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin/', admin_page, name='admin_page'),
     path('', landing_page, name='landing_page'),
     path('home', landing_page, name='landing_page'),
     path('create', create_page, name='create_page'),
@@ -34,7 +37,7 @@ urlpatterns = [
     path('mngr', manager_page, name='manager_page'),
     path('mebr', member_page, name='member_page'),
     path('team', team_page, name='team_page'),
-    path('date', date_page),
+    path('date', date_page, name='date_page'),
     path('about', about_page),
     path('category/', include('category.urls')),
 ]

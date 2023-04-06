@@ -1,7 +1,8 @@
 from django.urls import path
+from django.contrib import admin
+
 
 from . import views
-# from .views import update_location
 
 # urls for the App "category" within the project "team_planner"
 
